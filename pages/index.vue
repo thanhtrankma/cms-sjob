@@ -1,38 +1,25 @@
 <template>
-  <div class="container">
+  <section class="container">
     <div>
-      <Logo />
-      <h1 class="title">CMS-Sjob</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+      <h1 class="title">SJob - CMS</h1>
+      <h2 class="subtitle">Backend CMS</h2>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
-export default {}
+export default {
+  beforeCreate() {
+    const permission = this.$getPermission()
+    this.$routingByPermission(permission)
+  },
+}
 </script>
 
 <style>
 .container {
   margin: 0 auto;
-  min-height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
